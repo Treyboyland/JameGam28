@@ -44,4 +44,38 @@ public static class HelperFunctions
 
         return toReturn;
     }
+
+    public static int DiceRoll(int numberOfDice, int diceSides)
+    {
+        int total = 0;
+
+        for (int i = 0; i < numberOfDice; i++)
+        {
+            total += UnityEngine.Random.Range(1, diceSides + 1);
+        }
+
+        return total;
+    }
+
+    public static int DiceRoll(string diceString)
+    {
+        string[] parts = diceString.Split('d', System.StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length == 2)
+        {
+            bool countParsed = int.TryParse(parts[0], out int numberOfDice);
+            bool sidesParsed = int.TryParse(parts[1], out int numberOfSides);
+            
+            if (countParsed && sidesParsed)
+            {
+                return DiceRoll(numberOfDice, numberOfSides);
+            }
+            else
+            {
+                Debug.LogWarning((countParsed ? "" : "Count \"" + parts[0] + "\" can't be parsed. ") +
+                    (sidesParsed ? "" : "Sides \"" + parts[1] + "\" can't be parsed. "));
+            }
+        }
+        return -1;
+    }
 }

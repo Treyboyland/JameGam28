@@ -46,4 +46,27 @@ public class SheepWool : MonoBehaviour
         UpdateWoolSize();
     }
 
+    public int GetWoolModifier()
+    {
+        float progress = Progress;
+
+        if (progress < .2f)
+        {
+            return -2;
+        }
+        if (progress < .4f)
+        {
+            return -1;
+        }
+        if (progress <= .6)
+        {
+            return 0;
+        }
+        if (progress < .8)
+        {
+            return 1;
+        }
+        return 2;
+    }
+
 }

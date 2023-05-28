@@ -14,4 +14,8 @@ public abstract class PlayerPower : MonoBehaviour
 
     public abstract bool CanUse();
     public abstract void UsePower();
+
+    public bool IsActivePower { get => player.CurrentPower.Power == power; }
+
+    public virtual float Progress { get => 1.0f; }
 }

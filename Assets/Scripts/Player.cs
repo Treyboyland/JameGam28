@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -90,5 +91,10 @@ public class Player : MonoBehaviour
             //TODO: Actually do power stuff
             currentPower.UsePower();
         }
+    }
+
+    public PlayerPower GetPlayerPower(PlayerPowersSO power)
+    {
+        return powers.Where(x => x.Power == power).FirstOrDefault();
     }
 }

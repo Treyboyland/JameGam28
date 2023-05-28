@@ -159,3 +159,4 @@ MonoBehaviour:
   secondsBetweenIllnessChecks: 10
   secondsBetweenSmallMoves: 0.5
   secondsBetweenStatusChanges: 0.5
+  maxGold: 100

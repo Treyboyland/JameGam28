@@ -94,12 +94,12 @@ public class SheepMovement : MonoBehaviour
     {
         var pos = GetUpdatedGroundPosition(currentDirection);
         var ground = groundSpawner.GetGroundAtPosition(pos);
-        if (ground != null)
+        if (ground != null && !ground.Obstructed)
         {
             sheep.transform.position = ground.MovementTransform.position;
             sheep.CurrentPosition = pos;
         }
-        else
+        else if (ground == null)
         {
             //TOOD: Handle Out of Bounds
         }
@@ -124,6 +124,6 @@ public class SheepMovement : MonoBehaviour
             SetRotation(nextMove);
             yield return new WaitForSeconds(sheep.CurvesSO.SecondsBetweenSmallMoves);
             MoveToNewPosition(nextMove);
-        }       
+        }
     }
 }

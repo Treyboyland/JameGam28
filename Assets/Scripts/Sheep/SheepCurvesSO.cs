@@ -33,6 +33,9 @@ public class SheepCurvesSO : ScriptableObject
     [SerializeField]
     float secondsBetweenStatusChanges;
 
+    [SerializeField]
+    int maxGold;
+
     public AnimationCurve MaxMoves { get => maxMoves; }
     public float SecondsBetweenSmallMoves { get => secondsBetweenSmallMoves; }
     public AnimationCurve WaitBetweenMoves { get => waitBetweenMoves; }
@@ -41,4 +44,6 @@ public class SheepCurvesSO : ScriptableObject
     public AnimationCurve WoolGrowth { get => woolGrowth; }
     public float SecondsBetweenIllnessChecks { get => secondsBetweenIllnessChecks; }
     public AnimationCurve IllnessProbability { get => illnessProbability; }
+
+    public int MaxGold { get => maxGold; }
 }

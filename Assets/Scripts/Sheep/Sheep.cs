@@ -55,6 +55,11 @@ public class Sheep : MonoBehaviour
         wool.ResetTime();
     }
 
+    public int CurrentGold()
+    {
+        return (int)(curvesSO.MaxGold * wool.Progress);
+    }
+
     public void AddStatus(SheepStatusSO status)
     {
         if (!currentStatus.Contains(status))
@@ -73,5 +78,10 @@ public class Sheep : MonoBehaviour
     public bool HasStatus(SheepStatusSO statusSO)
     {
         return currentStatus.Contains(statusSO);
+    }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
     }
 }

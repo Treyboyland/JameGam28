@@ -29,9 +29,9 @@ public class SheepStatusUI : MonoBehaviour
 
     void ResetStatus()
     {
-        StopAllCoroutines();
-        currentStatusIndex = 0;
-        StartCoroutine(StatusLoop());
+        // StopAllCoroutines();
+        // currentStatusIndex = 0;
+        // StartCoroutine(StatusLoop());
     }
 
     void SetImageAlpha(float value)
@@ -49,6 +49,7 @@ public class SheepStatusUI : MonoBehaviour
             {
                 yield return null;
                 SetImageAlpha(0);
+                currentStatusIndex = 0;
                 continue;
             }
 

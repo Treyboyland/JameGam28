@@ -106,4 +106,33 @@ public class GroundSpawner : MonoBehaviour
     {
         return groundPool.Where(x => x.gameObject.activeInHierarchy && x.Position == pos).FirstOrDefault();
     }
+
+    bool IsValidPoint(Vector2Int pos)
+    {
+        return GetGroundAtPosition(pos) != default(Ground);
+    }
+
+    public List<Vector2Int> GetNeighbors(Vector2Int pos)
+    {
+        List<Vector2Int> toReturn = new List<Vector2Int>();
+
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if ((x == 0 && y == 0) || (Mathf.Abs(x) + Mathf.Abs(y) > 1))
+                {
+                    continue;
+                }
+                Vector2Int neighbor = new Vector2Int(pos.x + x, pos.y + y);
+
+                if (IsValidPoint(neighbor))
+                {
+                    toReturn.Add(neighbor);
+                }
+            }
+        }
+
+        return toReturn;
+    }
 }

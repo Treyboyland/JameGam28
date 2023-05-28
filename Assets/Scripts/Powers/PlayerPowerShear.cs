@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPowerSheer : PlayerPower
+public class PlayerPowerShear : PlayerPower
 {
     [SerializeField]
     Transform cameraTransform;
@@ -27,7 +27,7 @@ public class PlayerPowerSheer : PlayerPower
             return;
         }
 
-        //TODO: 
+        player.Gold += currentSheep.CurrentGold();
         currentSheep.SheerSheep();
     }
 }

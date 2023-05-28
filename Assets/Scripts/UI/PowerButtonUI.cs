@@ -13,6 +13,9 @@ public class PowerButtonUI : MonoBehaviour
     Image buttonImage;
 
     [SerializeField]
+    Image progressImage;
+
+    [SerializeField]
     Color selectedColor, notSelectedColor;
 
     [SerializeField]
@@ -30,6 +33,7 @@ public class PowerButtonUI : MonoBehaviour
         get => power;
         set
         {
+            gameObject.name = "PowerButton-" + value.PowerName;
             power = value;
             textBox.text = "" + (power.Cost == 0 ? "" : power.Cost);
             image.sprite = power.Icon;
@@ -53,6 +57,14 @@ public class PowerButtonUI : MonoBehaviour
 
     private void Update()
     {
-       buttonImage.color = player.CurrentPower.Power == power ? selectedColor : notSelectedColor;
+        buttonImage.color = player.CurrentPower.Power == power ? selectedColor : notSelectedColor;
+        if (power.UseTime)
+        {
+            var playerPower = player.GetPlayerPower(power);
+            if (playerPower != default(PlayerPower))
+            {
+                progressImage.fillAmount = playerPower.Progress;
+            }
+        }
     }
 }

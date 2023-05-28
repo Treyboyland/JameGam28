@@ -21,11 +21,27 @@ public struct SheepStats
 
     public void Randomize()
     {
+        /// <summary>
+        /// Illness, heat, cold resistance, puddle survival
+        /// </summary>
+        /// <returns></returns>
         Constitution = UnityEngine.Random.Range(0, 11);
+        /// <summary>
+        /// How far the sheep moves
+        /// </summary>
+        /// <returns></returns>
         Strength = UnityEngine.Random.Range(0, 11);
         Intelligence = 0;
         Wisdom = 0;
+        /// <summary>
+        /// How frequently it moves
+        /// </summary>
+        /// <returns></returns>
         Dexterity = UnityEngine.Random.Range(0, 11);
+        /// <summary>
+        /// How fast wool grows
+        /// </summary>
+        /// <returns></returns>
         Charisma = UnityEngine.Random.Range(0, 11);
     }
 

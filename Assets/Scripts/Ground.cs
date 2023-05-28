@@ -10,5 +10,17 @@ public class Ground : MonoBehaviour
 
     public Transform MovementTransform { get => movementPosition; }
 
-    public Vector2Int Position;
+    Vector2Int position;
+
+    public Vector2Int Position
+    {
+        get => position;
+        set
+        {
+            position = value;
+            gameObject.name = "Ground [" + position.x +","+ position.y + "]";
+        }
+    }
+
+    public bool Obstructed { get; set; } = false;
 }
